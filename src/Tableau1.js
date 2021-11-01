@@ -36,7 +36,7 @@ class Tableau1 extends Phaser.Scene{
 
         //texture au fond  TODO élève : faire une boucle pour charger les 3 images et démontrer par la même que vous savez aller au plus simple
         for(let i=1;i<=3;i++) {
-            this.load.image('bg-animation-' + i, 'assets/level/background-2/bg-animation/bg-animation-' + i + '.png');
+            this.load.image('bg-animation-'+i, 'assets/level/background-2/bg-animation/bg-animation-' + i + '.png');
         }
     }
 
@@ -65,15 +65,24 @@ class Tableau1 extends Phaser.Scene{
          * Terrain dans bg2
          * @type {Phaser.GameObjects.Image}
          */
+        // montagne 1
         let bg2Terrain2=this.add.image(-100,100, 'bg2-terrain-2').setOrigin(0,0);
         this.bg2Container.add(bg2Terrain2);
+        // montagne 2
+        let bg2Terrain4=this.add.image(750,200, 'bg2-terrain-4').setOrigin(0,0);
+        this.bg2Container.add(bg2Terrain4);
         /**
          * Arbre dans bg2
          * @type {Phaser.GameObjects.Image}
          */
-        let bg2Tree2=this.add.image(400,-50, 'bg2-tree-2').setOrigin(0,0);
-        this.bg2Container.add(bg2Tree2);
-        bg2Tree2.angle=-5; //pencher l'arbre de -5 degrès
+        let bg2Tree1=this.add.image(400,-50, 'bg2-tree-2').setOrigin(0,0);
+        this.bg2Container.add(bg2Tree1);
+
+
+        //arbres montagne deux
+        let bg2Tree3=this.add.image(700,-60, 'bg2-tree-3').setOrigin(0,0);
+        this.bg2Container.add(bg2Tree3);
+
 
         //--------------background 1 (gris) --------------------
 
@@ -89,7 +98,6 @@ class Tableau1 extends Phaser.Scene{
         let bg1Terrain3=this.add.image(-300,200, 'bg1-terrain-3').setOrigin(0,0);
         this.bg1Container.add(bg1Terrain3);
 
-
         //-------------ground (premier plan noir)---------------------------
 
         /**
@@ -101,22 +109,22 @@ class Tableau1 extends Phaser.Scene{
          * Arbre
          * @type {Phaser.GameObjects.Image}
          */
-        let tree1=this.add.image(300,350, 'gTree1').setOrigin(0,1);
-        //tree1.setTintFill(0xFF0000); // pratique pour dbugger
+        let tree1=this.add.image(300,450, 'gTree1').setOrigin(0,1);
+        // tree1.setTintFill(0xFF0000); // pratique pour dbugger A ENLEVER A LA FIN
         this.groundContainer.add(tree1);
         /**
          * Terrain 1
          * @type {Phaser.GameObjects.Image}
          */
-        //ici on va calculer les positions
+            //ici on va calculer les positions
         let gMid1=this.add.image(0,350, 'gMid').setOrigin(0,0);
         this.groundContainer.add(gMid1);
         /**
          * Terrain 2
          * @type {Phaser.GameObjects.Image}
          */
-        let gMid2=this.add.image(gMid1.x+gMid1.width,350, 'gMid').setOrigin(0,0); //on rajoute 1 px pour l'exemple
-        this.groundContainer.add(gMid2);
+        let gMid2=this.add.image(gMid1.x+gMid1.width,350, 'gMid').setOrigin(0,0);
+        this.groundContainer.add(gMid2); // peut être fait en boucle
         /**
          * Terrain 3
          * @type {Phaser.GameObjects.Image}
