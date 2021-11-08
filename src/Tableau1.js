@@ -30,7 +30,10 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gWater',  'assets/level/ground/g-water.png');
         this.load.image('gSpike', 'assets/level/ground/g-spike-1.png');
         this.load.image('gSpike2', 'assets/level/ground/g-spike-2.png');
-        this.load.image('gBox2',   'assets/level/ground/g-box-2.png');
+        this.load.image('gbox2',   'assets/level/ground/g-box-2.png');
+        this.load.image('gLiane1', 'assets/level/ground/g-vine-a.png');
+        this.load.image('gLiane2', 'assets/level/ground/g-vine-b.png');
+        this.load.image('gLiane3', 'assets/level/ground/g-vine-c.png');
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
         // ALGO : ceci est une boucle
         for(let i=1;i<=5;i++){
@@ -173,7 +176,55 @@ class Tableau1 extends Phaser.Scene{
         let stone3=this.add.image(300,360,'gStone3').setOrigin(0,1);
         this.groundContainer.add(stone3)
         stone3.scale=1
+        /**
+         *
+         * @type {Phaser.GameObjects.Image}
+         */
+        // lianne 1
+        let vine101=this.add.image(500,-10, 'gLiane3').setOrigin(0,0);
+        this.groundContainer.add(vine101);
+        vine101.scale=0.7
 
+        let vine102=this.add.image(500,20, 'gLiane1').setOrigin(0,0);
+        this.groundContainer.add(vine102);
+        vine102.scale=0.7
+
+        let vine103=this.add.image(505,50, 'gLiane2').setOrigin(0,0);
+        this.groundContainer.add(vine103);
+        vine103.scale=0.7
+
+        let vine104=this.add.image(505,80, 'gLiane2').setOrigin(0,0);
+        this.groundContainer.add(vine104);
+        vine104.scale=0.7
+
+        let vine105=this.add.image(500,110, 'gLiane3').setOrigin(0,0);
+        this.groundContainer.add(vine105);
+        vine105.scale=0.7
+
+        let vine106=this.add.image(500,140, 'gLiane1').setOrigin(0,0);
+        this.groundContainer.add(vine106);
+        vine106.scale=0.7
+
+        let vine107=this.add.image(505,170, 'gLiane2').setOrigin(0,0);
+        this.groundContainer.add(vine107);
+        vine107.scale=0.7
+
+        // lianne 2
+        let vine201=this.add.image(550,-10, 'gLiane3').setOrigin(0,0);
+        this.groundContainer.add(vine201);
+        vine201.scale=0.7
+
+        let vine202=this.add.image(550,20, 'gLiane1').setOrigin(0,0);
+        this.groundContainer.add(vine202);
+        vine202.scale=0.7
+
+        let vine203=this.add.image(555,50, 'gLiane2').setOrigin(0,0);
+        this.groundContainer.add(vine203);
+        vine203.scale=0.7
+
+        let vine204=this.add.image(555,80, 'gLiane2').setOrigin(0,0);
+        this.groundContainer.add(vine204);
+        vine204.scale=0.7
         /**
          * Lac
          * @type {Phaser.GameObjects.Image}
@@ -218,6 +269,13 @@ class Tableau1 extends Phaser.Scene{
         let bridge=this.add.image(380,380,'gBridge').setOrigin(0,1);
         this.groundContainer.add(bridge)
         bridge.scale=0.8
+        /**
+         * @type {Phaser.GameObjects.Image}
+         */
+        let gbox2=this.add.image(500,350, 'gbox2').setOrigin(0,1);
+        this.groundContainer.add(gbox2);
+        gbox2.scale = 0.6
+        gbox2.angle = 5
         /**
          * De l'herbe en textures qui se répète
          * @type {Phaser.GameObjects.TileSprite}
