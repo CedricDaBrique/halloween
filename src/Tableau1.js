@@ -51,6 +51,7 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gLiane3', 'assets/level/ground/g-vine-c.png');
         this.load.image('g-fellen-tree-1','assets/level/ground/g-fellen-tree-1.png');
         this.load.image('bg1-terrain-3', 'assets/level/background-1/bg-terrain-3.png');
+        this.load.image('z1', 'assets/zombie/z1.png');
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
         // ALGO : ceci est une boucle
         for(let i=1;i<=5;i++){
@@ -401,6 +402,15 @@ class Tableau1 extends Phaser.Scene{
         let spike4=this.add.image(1610,500,'gSpike')
         this.groundContainer.add(spike4)
         spike2.scale=1
+        /**
+         *
+         */
+        let zombie=this.add.image(1200,300,'z1')
+        this.groundContainer.add(zombie)
+
+
+
+
         /**
          * @type {Phaser.GameObjects.Image}
          */
