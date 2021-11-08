@@ -17,13 +17,28 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('bg1-terrain-3', 'assets/level/background-1/bg-terrain-3.png');
         this.load.image('bg1-tree-3', 'assets/level/background-1/bg-tree-3.png');
         this.load.image('bg1-tree-1', 'assets/level/background-1/bg-tree-1.png');
+        this.load.image('bg1-terrain-1', 'assets/level/background-1/bg-terrain-1.png');
+        this.load.image('bg1-terrain-4', 'assets/level/background-1/bg-terrain-4.png');
+        this.load.image('bg1-terrain-4', 'assets/level/background-1/bg-terrain-4.png');
+        this.load.image('gbridge', 'assets/level/background-1/bg-wooden-bridge.png');
+
+
+
+
         //ground (premier plan noir)
         this.load.image('gMid', 'assets/level/ground/g-mid.png');
+        this.load.image('gMid', 'assets/level/ground/g-mid.png');
+        this.load.image('g-grass-1', 'assets/level/ground/g-grass-1.png');
+        this.load.image('g-grass-2', 'assets/level/ground/g-grass-2.png');
+        this.load.image('g-grass-3', 'assets/level/ground/g-grass-3.png');
+        this.load.image('g-grass-4', 'assets/level/ground/g-grass-4.png');
+        this.load.image('g-grass-5', 'assets/level/ground/g-grass-5.png');
         this.load.image('gLeft', 'assets/level/ground/g-left.png');
         this.load.image('gRight', 'assets/level/ground/g-right.png');
         this.load.image('gTree1', 'assets/level/ground/g-tree-1.png');
         this.load.image('gTree2', 'assets/level/ground/g-tree-2.png');
         this.load.image( 'gStone3', 'assets/level/ground/g-stone-3.png');
+        this.load.image( 'gStone1', 'assets/level/ground/g-stone-1.png');
         this.load.image('gStone4', 'assets/level/ground/g-stone-4.png');
         this.load.image('gMush1', 'assets/level/ground/g-mushroom1.png');
         this.load.image('gBridge', 'assets/level/ground/g-wooden-bridge.png');
@@ -34,6 +49,8 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gLiane1', 'assets/level/ground/g-vine-a.png');
         this.load.image('gLiane2', 'assets/level/ground/g-vine-b.png');
         this.load.image('gLiane3', 'assets/level/ground/g-vine-c.png');
+        this.load.image('g-fellen-tree-1','assets/level/ground/g-fellen-tree-1.png');
+        this.load.image('bg1-terrain-3', 'assets/level/background-1/bg-terrain-3.png');
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
         // ALGO : ceci est une boucle
         for(let i=1;i<=5;i++){
@@ -42,7 +59,11 @@ class Tableau1 extends Phaser.Scene{
 
         //filtre film TODO élève : faire une boucle à la place des 3 lignes qui suivent
         for(let i=1;i<=3;i++) {
-            this.load.image('filterFilm' + i, 'assets/level/filters/film/frame-' + i + '.png');
+            this.load.image('filterBloody' + i, 'assets/level/filters/bloody/frame' + i + '.png');
+
+        }
+        for(let i=1;i<=3;i++) {
+            this.load.image('filterRain' + i, 'assets/level/weather/rain/frame' + i + '.png');
 
         }
 
@@ -127,6 +148,44 @@ class Tableau1 extends Phaser.Scene{
          */
         let bg1terrain3=this.add.image(-450,195, 'bg1-terrain-3').setOrigin(0,0);
         this.bg1Container.add(bg1terrain3);
+        /**
+         * Terrain
+         * @type {Phaser.GameObjects.Image}
+         */
+        let bg1terrain1=this.add.image(650,300, 'bg1-terrain-1').setOrigin(0,0);
+        this.bg1Container.add(bg1terrain1);
+        bg1terrain1.scale = 0.5
+        /**
+         * Terrain
+         *
+         */
+        let bg1terrain4=this.add.image(650,300, 'bg1-terrain-4').setOrigin(0,0);
+        this.bg1Container.add(bg1terrain4);
+        bg1terrain4.scale = 0.5
+        let bg1terrain=this.add.image(1100,210, 'bg1-terrain-4').setOrigin(0,0);
+        this.bg1Container.add(bg1terrain);
+        bg1terrain4.scale = 0.5
+        /**
+         *
+         */
+        let bg1Tree2=this.add.image(850,-100, 'bg1-tree-1').setOrigin(0,0);
+        this.bg1Container.add(bg1Tree2);
+        /**
+         *
+         */
+        let bridge1=this.add.image(990,360,'gbridge').setOrigin(0,1);
+        this.bg1Container.add(bridge1);
+        bridge1.angle=-5
+
+
+
+
+
+
+
+        /**
+         *
+         */
         //-------------ground (premier plan noir)---------------------------
 
         /**
@@ -270,6 +329,79 @@ class Tableau1 extends Phaser.Scene{
         this.groundContainer.add(bridge)
         bridge.scale=0.8
         /**
+         *  @type {Phaser.GameObjects.Image}
+         */
+        let gMid=this.add.image(980,550, 'gMid')
+        this.groundContainer.add(gMid);
+        /**
+         *  @type {Phaser.GameObjects.Image}
+         */
+        let gRight=this.add.image(1150,550, 'gRight')
+        this.groundContainer.add(gMid);
+        /**
+         *
+         */
+        let gMid5=this.add.image(1200,550, 'gMid')
+        this.groundContainer.add(gMid);
+        /**
+         *
+         */
+        let gRight5=this.add.image(1250,550, 'gRight')
+        this.groundContainer.add(gMid);
+        /**
+         *
+         */
+        let gLeft1=this.add.image(1800,600, 'gLeft')
+        this.groundContainer.add(gMid);
+        /**
+         *
+         */
+        let gRight6=this.add.image(1905,600, 'gRight')
+        this.groundContainer.add(gMid);
+        /**
+         *
+         */
+        let gfellentree=this.add.image(1540,350, 'g-fellen-tree-1')
+        this.groundContainer.add(gfellentree);
+        gfellentree.angle=9
+        /**
+         *
+         */
+        let gsto=this.add.image (940,370,'gStone1').setOrigin(0,1);
+        this.groundContainer.add(gsto);
+        gsto.setScale(1.9 , 2)
+        /**
+         *Herbe
+         */
+        let gGrass=this.add.image(940,340, 'g-grass-1')
+        this.groundContainer.add(gGrass);
+        let gGrass2=this.add.image(920,340, 'g-grass-1')
+        this.groundContainer.add(gGrass2);
+        let gGrass3=this.add.image(960,360, 'g-grass-1')
+        this.groundContainer.add(gGrass3);
+        let gGrass4=this.add.image(1285,330, 'g-grass-2')
+        this.groundContainer.add(gGrass4);
+        let gGrass5=this.add.image(1280,345, 'g-grass-3')
+        this.groundContainer.add(gGrass5);
+        let gGrass6=this.add.image(2000,390, 'g-grass-3')
+        this.groundContainer.add(gGrass6);
+        gGrass6.setScale(1.9 , 2)
+        /**
+         *
+         */
+        let mush2=this.add.image(1100,380, 'gMush1').setOrigin(0,1);
+        this.groundContainer.add(mush2);
+        mush2.setScale(0.9 ,  0.8)
+        /**
+         *
+         */
+        let spike3=this.add.image(1450,500,'gSpike')
+        this.groundContainer.add(spike3)
+        spike.scale=1
+        let spike4=this.add.image(1610,500,'gSpike')
+        this.groundContainer.add(spike4)
+        spike2.scale=1
+        /**
          * @type {Phaser.GameObjects.Image}
          */
         let gbox2=this.add.image(500,350, 'gbox2').setOrigin(0,1);
@@ -298,19 +430,49 @@ class Tableau1 extends Phaser.Scene{
          * filtre type film au premier plan
          * @type {Phaser.GameObjects.Sprite}
          */
-        this.filterFilm = this.add.sprite(0, 0, 'filterFilm1').setOrigin(0,0);
+        this.filterBloody = this.add.sprite(0, 0, 'filterBloody1').setOrigin(0,0);
         //animation de 3 images
         this.anims.create({
-            key: 'film',
+            key: 'bloody',
             frames: [
-                {key:'filterFilm1'},
-                {key:'filterFilm2'},
-                {key:'filterFilm3'},
+                {key:'filterBloody1'},
+                {key:'filterBloody2'},
+                {key:'filterBloody3'},
             ],
             frameRate: 16,
             repeat: -1
         });
-        this.filterFilm.play('film');
+        this.filterBloody.play('bloody');
+        /**
+         * @type {Phaser.GameObjects.Sprite}
+         */
+        this.filterRain = this.add.sprite(0, 0, 'filterRain').setOrigin(0,0);
+        //animation de 3 images
+        this.anims.create({
+            key: 'rain',
+            frames: [
+                {key:'filterRain1'},
+                {key:'filterRain2'},
+                {key:'filterRain3'},
+            ],
+            frameRate: 16,
+            repeat: -1
+        });
+        this.filterRain.play('rain');
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /**
 
         //TODO élève faire une animation du même genre que filter mais pour bgAnimationA
 
@@ -326,7 +488,8 @@ class Tableau1 extends Phaser.Scene{
         this.cameras.main.setBounds(0, 0, 2000, 540);
         //définit à quelles vitesse se déplacent nos différents plans
         bgAnimationA.scrollFactorX=0;
-        this.filterFilm.scrollFactorX=0;
+        this.filterBloody.scrollFactorX=0;
+        this.filterRain.scrollFactorX=0;
         this.bg2Container.scrollFactorX=0.2;
         this.bg1Container.scrollFactorX=0.4;
         this.groundContainer.scrollFactorX=1;
@@ -342,10 +505,10 @@ class Tableau1 extends Phaser.Scene{
             switch (kevent.keyCode)
             {
                 case Phaser.Input.Keyboard.KeyCodes.RIGHT:
-                    me.speed=1;
+                    me.speed=5;
                     break;
                 case Phaser.Input.Keyboard.KeyCodes.LEFT:
-                    me.speed=-1;
+                    me.speed=-5;
                     break;
             }
         });
@@ -369,7 +532,8 @@ class Tableau1 extends Phaser.Scene{
         this.cameras.main.scrollX+=this.speed; // on aurait pu écrire : this.cameras.main.scrollX= this.cameras.main.scrollX + this.speed;
 
         //petit effet de vibrance sur le filtre film au tout premier plan
-        this.filterFilm.setAlpha(Phaser.Math.Between(95,100)/100)
+        this.filterBloody.setAlpha(Phaser.Math.Between(95,100)/100)
+        this.filterRain.setAlpha(Phaser.Math.Between(95,100)/100)
     }
 
 
