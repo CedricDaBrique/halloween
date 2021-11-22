@@ -52,6 +52,9 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('g-fellen-tree-1','assets/level/ground/g-fellen-tree-1.png');
         this.load.image('bg1-terrain-3', 'assets/level/background-1/bg-terrain-3.png');
         this.load.image('z1', 'assets/zombie/z1.png');
+
+
+
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
         // ALGO : ceci est une boucle
         for(let i=1;i<=5;i++){
@@ -71,6 +74,12 @@ class Tableau1 extends Phaser.Scene{
         //texture au fond  TODO élève : faire une boucle pour charger les 3 images et démontrer par la même que vous savez aller au plus simple
         for(let i=1;i<=3;i++) {
             this.load.image('bg-animation-' + i, 'assets/level/background-2/bg-animation/bg-animation-' + i + '.png');
+        }
+
+        //Personnage
+        for(let i=1;i<=10;i++) {
+            this.load.image('idle' + i, 'Characters/boy/boy_style_5/PNG/idle/Layer-' + i + '.png');
+            this.load.image('idle2.' + i, 'Characters/boy/boy_style_5/PNG/idle2/Layer2-' + i + '.png');
         }
     }
 
@@ -469,19 +478,44 @@ class Tableau1 extends Phaser.Scene{
             repeat: -1
         });
         this.filterRain.play('rain');
+        /**
+         * @type {Phaser.GameObjects.Sprite}
+         */
+        this.boy = this.add.sprite(0, 0, 'idle').setOrigin(0,0);
+        //animation perso idle
+        this.anims.create({
+            key: 'boy',
+            frames: this.getFrames('idle', 10),
+            frameRate: 16,
+            repeat: -1
+        });
+        this.boy.play('boy');
+        this.boy.scale = 0.8
+        /**
+         * @type {Phaser.GameObjects.Sprite}
+         */
+        this.boy = this.add.sprite(100, 0, 'idle2.').setOrigin(0,0);
+        //animation perso idle
+        this.anims.create({
+            key: 'boy',
+            frames: [
+                {key:'idle2.1'},
+                {key:'idle2.2'},
+                {key:'idle3.3'},
+                {key:'idle4.4'},
+                {key:'idle5.5'},
+                {key:'idle6.6'},
+                {key:'idle7.7'},
+                {key:'idle8.8'},
+                {key:'idle9.9'},
+                {key:'idle10.10'},
 
-
-
-
-
-
-
-
-
-
-
-
-
+            ],
+            frameRate: 16,
+            repeat: -1
+        });
+        this.boy.play('boy');
+        this.boy.scale = 0.8
         /**
 
         //TODO élève faire une animation du même genre que filter mais pour bgAnimationA
@@ -503,6 +537,13 @@ class Tableau1 extends Phaser.Scene{
         this.bg2Container.scrollFactorX=0.2;
         this.bg1Container.scrollFactorX=0.4;
         this.groundContainer.scrollFactorX=1;
+    }
+    getFrames(prefix,length){
+        let frames=[];
+        for (let i=1;i<=length;i++){
+            frames.push({key: prefix+i});
+        }
+        return frames;
     }
     /**
      * Définit ce qui se passe quand on appuie ou relache une touche du clavier
