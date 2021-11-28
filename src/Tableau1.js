@@ -56,6 +56,7 @@ class Tableau1 extends Phaser.Scene{
 
 
 
+
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
         // ALGO : ceci est une boucle
         for(let i=1;i<=5;i++){
@@ -91,6 +92,7 @@ class Tableau1 extends Phaser.Scene{
         for(let i=1;i<=10;i++) {
             this.load.image('push' + i, 'Characters/boy/boy_style_1/PNG/push/Layer-' + i + '.png');
         }
+
     }
 
     /**
