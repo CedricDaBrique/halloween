@@ -492,6 +492,17 @@ class Tableau1 extends Phaser.Scene{
         });
         this.boy.play('boy');
         this.boy.scale = 0.5
+        this.tweens.add({
+            targets: this.boy,
+            x: 10,
+            duration: 3000,
+            ease: Phaser.Math.Easing.Sine.InOut,
+            yoyo: true,
+            delay: 1000,
+            repeat: 4,
+            flipX:true
+        });
+
         /**
          * @type {Phaser.GameObjects.Sprite}
          */
@@ -506,6 +517,17 @@ class Tableau1 extends Phaser.Scene{
         this.ennemy.play('ennemy');
         this.ennemy.scale = 0.5
         this.ennemy.flipX = true
+        this.tweens.add({
+            targets: this.ennemy,
+            x: 700,
+            duration: 3000,
+            ease: Phaser.Math.Easing.Sine.InOut,
+            yoyo: true,
+            delay: 1000,
+            repeat: 4,
+            flipX:true
+        });
+
         /**
          * @type {Phaser.GameObjects.Sprite}
          */
@@ -528,7 +550,7 @@ class Tableau1 extends Phaser.Scene{
         this.anims.create({
             key: 'boy2',
             frames: this.getFrames('push', 10),
-            frameRate: 10,
+            frameRate: 9,
             repeat: -1
         });
         this.boy2.play('boy2');
@@ -555,6 +577,7 @@ class Tableau1 extends Phaser.Scene{
         this.bg2Container.scrollFactorX=0.2;
         this.bg1Container.scrollFactorX=0.4;
         this.groundContainer.scrollFactorX=1;
+
     }
     getFrames(prefix,length){
         let frames=[];
@@ -562,6 +585,8 @@ class Tableau1 extends Phaser.Scene{
             frames.push({key: prefix+i});
         }
         return frames;
+
+
     }
     /**
      * Définit ce qui se passe quand on appuie ou relache une touche du clavier
@@ -603,6 +628,7 @@ class Tableau1 extends Phaser.Scene{
         //petit effet de vibrance sur le filtre film au tout premier plan
         this.filterBloody.setAlpha(Phaser.Math.Between(95,100)/100)
         this.filterRain.setAlpha(Phaser.Math.Between(95,100)/100)
+        document.title=Math.random();
     }
 
 
